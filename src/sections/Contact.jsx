@@ -47,11 +47,36 @@ const contactMethods = [
 export const Contact = () => {
   const [ref, isInView] = useInView()
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = () => {
-    setTimeout(() => {
-      setIsSubmitted(true)
-    }, 500)
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError('')
+
+    const form = e.target
+    const data = new FormData(form)
+
+    try {
+      const response = await fetch('https://formspree.io/f/mbdboake', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        form.reset()
+      } else {
+        const json = await response.json()
+        setError(json?.errors?.[0]?.message || 'Something went wrong. Please try again.')
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -133,8 +158,6 @@ export const Contact = () => {
                 </motion.div>
               ) : (
                 <form
-                  action="https://formspree.io/f/mbdboake"
-                  method="POST"
                   onSubmit={handleSubmit}
                   className="space-y-5"
                 >
@@ -187,12 +210,29 @@ export const Contact = () => {
                     />
                   </div>
 
+                  {error && (
+                    <p className="text-red-400 text-sm text-center">{error}</p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 text-white font-medium hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 flex items-center justify-center gap-2"
+                    disabled={isLoading}
+                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 text-white font-medium hover:shadow-lg hover:shadow-primary-500/25 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <Send size={18} />
-                    Send Message
+                    {isLoading ? (
+                      <>
+                        <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send size={18} />
+                        Send Message
+                      </>
+                    )}
                   </button>
                 </form>
               )}

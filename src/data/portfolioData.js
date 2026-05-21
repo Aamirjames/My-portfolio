@@ -1,6 +1,5 @@
 export const personalInfo = {
   name: 'Aamir Khan',
-  title: 'Aspiring AI/ML Engineer | Generative AI Developer',
   intro: 'Motivated Software Engineering student focused on Artificial Intelligence, Machine Learning, and Generative AI. Experienced in building and deploying AI-powered applications using Gradio, Groq API and Hugging Face Spaces. Passionate about creating intelligent systems and solving real-world problems with AI.',
   location: 'Sargodha, Pakistan',
   email: 'aamirjames006@gmail.com',
@@ -75,7 +74,7 @@ export const projectsData = [
     githubLink: 'https://github.com/Aamirjames',
 
     // will put image here later
-    image: '/project-skill-snap.jpg',
+    image: '/skill-snap.jpg',
     color: 'from-primary-600 to-accent-purple',
   },
   {
@@ -88,7 +87,7 @@ export const projectsData = [
     githubLink: 'https://github.com/Aamirjames',
 
     // i will put image here later
-    image: '/project-skill-share.jpg',
+    image: '/skill-share.jpg',
     color: 'from-accent-emerald to-primary-600',
   },
 ]
@@ -103,12 +102,12 @@ export const educationData = [
 ]
 
 export const achievementsData = [
-  { title: 'Final Year Project Development', value: '1', suffix: '+', description: 'Full-stack marketplace platform' },
-  { title: 'AI Hackathon Team Leadership', value: '1', suffix: '+', description: 'Led 5-member team successfully' },
-  { title: 'AI Applications Deployed', value: '2', suffix: '+', description: 'Live on Hugging Face & web' },
-  { title: 'APIs Integrated', value: '3', suffix: '+', description: 'Groq, Hugging Face, custom APIs' },
-  { title: 'Team Collaboration', value: '5', suffix: '+', description: 'Cross-functional team experience' },
-  { title: 'Generative AI Projects', value: '2', suffix: '+', description: 'LLM-powered applications' },
+  { title: 'Full-Stack Platform Built', value: '1', suffix: '', description: 'Freelancing marketplace with auth, bidding & payments' },
+  { title: 'Team Members Led', value: '5', suffix: '', description: 'Led cross-functional team in AI hackathon' },
+  { title: 'Live AI Apps Deployed', value: '2', suffix: '', description: 'Live on Hugging Face Spaces & web' },
+  { title: 'APIs Integrated', value: '3', suffix: '+', description: 'Groq, Hugging Face, and custom APIs' },
+  { title: 'Months AI Experience', value: '6', suffix: '+', description: 'Hands-on Generative AI development' },
+  { title: 'LLM-Powered Projects', value: '2', suffix: '', description: 'Production-ready Generative AI applications' },
 ]
 
 export const contactData = {

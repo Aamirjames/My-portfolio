@@ -37,6 +37,14 @@ export const Projects = () => {
                 <div className="relative h-full glass-card overflow-hidden group-hover:bg-dark-card/80 transition-all duration-500">
                   {/* Project Banner */}
                   <div className={`h-48 sm:h-56 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        onError={(e) => { e.currentTarget.style.display = 'none' }}
+                      />
+                    ) : null}
                     <div className="absolute inset-0 bg-dark-bg/40" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
