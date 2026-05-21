@@ -21,7 +21,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16"
     >
       {/* Background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -162,7 +162,7 @@ export const Hero = () => {
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute -bottom-4 -left-4 px-3 py-1.5 rounded-lg bg-dark-card border border-accent-purple/30 text-accent-purple text-xs font-medium shadow-lg"
+                className="absolute -bottom-4 -left-1 px-3 py-1.5 rounded-lg bg-dark-card border border-accent-purple/30 text-accent-purple text-xs font-medium shadow-lg"
               >
                 Generative AI
               </motion.div>
